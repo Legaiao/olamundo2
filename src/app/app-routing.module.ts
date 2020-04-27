@@ -28,8 +28,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   },
   {
-    path: 'contacts',
+    path: 'contatos',
     loadChildren: () => import('./pages/contacts/contacts.module').then( m => m.ContactsPageModule)
+  },
+
+  // Rota para listagem de usuários
+  {
+    path: 'usuarios/todos',
+    loadChildren: () => import('./users/listusers/listusers.module').then( m => m.ListusersPageModule)
   },
 
   // Carrega a página e404 caso a página não exista --> Erro 404
