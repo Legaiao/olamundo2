@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 // Modelagem dos dados
-import { ResponseUsers } from '../models/users.model';
+import { ResponseUsers, ResponseDelUser } from '../models/users.model';
 
 
 @Injectable({
@@ -34,4 +34,14 @@ export class UsersService {
 
     return this.http.get<ResponseUsers>(url);
   }
+
+  // Método para apagar um usário único
+  deleteUser(id: string): Observable<ResponseDelUser> {
+
+    // Formata a URL para apagar usuário único pelo Id
+    const url = `${this.apiUrl}?id=${id}`;
+
+    return this.http.delete<ResponseDelUser>(url);
+  }
+
 }
