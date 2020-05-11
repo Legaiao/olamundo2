@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 // Modelagem dos dados
-import { ResponseUsers, ResponseDelUser } from '../models/users.model';
+import { ResponseUsers, ResponseDelUser, ResponsePostUser } from '../models/users.model';
 
 
 @Injectable({
@@ -35,7 +35,7 @@ export class UsersService {
     return this.http.get<ResponseUsers>(url);
   }
 
-  // Método para apagar um usário único
+  // Método para apagar um uusário único
   deleteUser(id: string): Observable<ResponseDelUser> {
 
     // Formata a URL para apagar usuário único pelo Id
@@ -44,4 +44,19 @@ export class UsersService {
     return this.http.delete<ResponseDelUser>(url);
   }
 
+  // Método para salvar um novo usuário
+  postUser(data: any) {
+    let url = `${this.apiUrl}?`;
+
+    // Montando requisição
+    Object.keys(data).forEach(
+      (key) => {
+        url += `${key}=${data[key]}&`;
+      }
+    );
+
+    console.log(url);
+
+    return this.http.post<ResponsePostUser>(url, data);
+  }
 }
