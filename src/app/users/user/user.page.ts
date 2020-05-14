@@ -84,7 +84,7 @@ export class UserPage implements OnInit {
 
   // Ação do botão Editar
   editUser(id: string) {
-    alert(`Editando ${id}...`);
+    this.navCtrl.navigateForward(`usuarios/editar/${id}`);
   }
 
   // Ação do botão Apagar

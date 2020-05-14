@@ -50,6 +50,12 @@ const routes: Routes = [
     loadChildren: () => import('./users/create/create.module').then(m => m.CreatePageModule)
   },
 
+  // Rota para editar editar registro existente
+  {
+    path: 'usuarios/editar/:id',
+    loadChildren: () => import('./users/edit/edit.module').then( m => m.EditPageModule)
+  },
+
   // Carrega a página e404 caso a página não exista --> Erro 404
   {
     path: '**',
