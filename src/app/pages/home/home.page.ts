@@ -24,4 +24,18 @@ export class HomePage implements OnInit {
     this.navCtrl.navigateForward('usuarios/criar');
   }
 
+  // Ação do botão "Status do dispositivo"
+  devStatus() {
+    this.navCtrl.navigateForward('dev/status');
+  }
+
+  // Ação do botão "Tirar foto"
+  devCamera() {
+    this.navCtrl.navigateForward('dev/camera');
+  }
+
+  // Ação do botão "GPS"
+  geolocation() {
+    this.navCtrl.navigateForward('dev/gps');
+  }
 }
